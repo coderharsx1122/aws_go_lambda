@@ -1,0 +1,20 @@
+service: serverless-rest-api
+frameworkVersion: ">=4.1.0"
+provider:
+  name: aws
+  runtime : go1.x
+  region: ap-south-1
+  stage: ${opt:stage}
+functions :
+  api :
+     handler: bin/main
+     events: 
+       - http:
+           path: /home
+           method: GET
+package:
+  patterns:
+    - bin/main
+    
+
+
