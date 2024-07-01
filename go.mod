@@ -3,6 +3,7 @@ module github.com/coderharsx1122/serverless_go_api
 go 1.22.4
 
 require (
+	github.com/aws/aws-lambda-go v1.47.0 // indirect
 	github.com/bytedance/sonic v1.11.9 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect

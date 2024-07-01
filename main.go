@@ -1,18 +1,20 @@
 package main
 
 import (
-	"net/http"
+	"context"
 
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
-
+func handler(ctx context.Context) (interface{}, error) {
 	r := gin.Default()
-	r.GET("/home", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello from Serveless golang rest api",
-		})
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{"message": "Hello from Lambda!"})
 	})
-	r.Run()
+	return r, nil
+}
+
+func main() {
+	lambda.Start(handler)
 }
